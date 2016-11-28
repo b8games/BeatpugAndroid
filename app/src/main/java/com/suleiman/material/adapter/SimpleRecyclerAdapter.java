@@ -21,6 +21,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     Boolean isHomeList = false;
 
     public static List<String> homeActivitiesList = new ArrayList<String>();
+
     public static List<String> homeActivitiesSubList = new ArrayList<String>();
     Context context;
     OnItemClickListener clickListener;
