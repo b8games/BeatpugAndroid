@@ -58,6 +58,9 @@
         <activity
             android:name="com.b8games.beatpug.activities.PagerActivity"
             android:theme="@style/MyTheme.Detail" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="44310b5c32745763d69ee97417d970a11fb7a7ed" />ed" />
     </application>
 
 </manifest>
