@@ -1,13 +1,10 @@
 package com.suleiman.material.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +13,6 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.suleiman.material.R;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by sulei on 8/12/2015.
@@ -47,6 +43,7 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.GmailVH> {
     @Override
     public void onBindViewHolder(GmailVH gmailVH, int i) {
         gmailVH.title.setText(dataList.get(i));
+
 //        Get the first letter of list item
         letter = String.valueOf(dataList.get(i).charAt(0));
 
