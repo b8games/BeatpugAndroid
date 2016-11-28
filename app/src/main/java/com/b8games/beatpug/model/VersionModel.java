@@ -1,4 +1,4 @@
-package com.suleiman.material.model;
+package com.b8games.beatpug.model;
 
 /**
  * Created by Suleiman on 14-04-2015.

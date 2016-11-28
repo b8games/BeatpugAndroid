@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.suleiman.material.R;
+import com.b8games.beatpug.R;
 
 public class NavDrawerActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -9,9 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.suleiman.material.R;
-import com.suleiman.material.adapter.SimpleRecyclerAdapter;
-import com.suleiman.material.model.VersionModel;
+import com.b8games.beatpug.R;
+import com.b8games.beatpug.adapter.SimpleRecyclerAdapter;
+import com.b8games.beatpug.model.VersionModel;
 
 import java.util.ArrayList;
 import java.util.List;

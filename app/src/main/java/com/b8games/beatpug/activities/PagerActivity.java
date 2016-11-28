@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.animation.ArgbEvaluator;
 import android.graphics.Color;
@@ -21,8 +21,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.suleiman.material.R;
-import com.suleiman.material.utils.Utils;
+import com.b8games.beatpug.R;
+import com.b8games.beatpug.utils.Utils;
 
 public class PagerActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.suleiman.material.R;
+import com.b8games.beatpug.R;
 
 public class NestedToolbarActivity extends AppCompatActivity {
 

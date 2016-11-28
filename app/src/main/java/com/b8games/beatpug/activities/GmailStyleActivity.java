@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,9 +16,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.suleiman.material.R;
-import com.suleiman.material.adapter.GmailAdapter;
-import com.suleiman.material.model.VersionModel;
+import com.b8games.beatpug.R;
+import com.b8games.beatpug.adapter.GmailAdapter;
+import com.b8games.beatpug.model.VersionModel;
 
 import java.util.ArrayList;
 import java.util.List;

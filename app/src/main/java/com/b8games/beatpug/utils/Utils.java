@@ -1,4 +1,4 @@
-package com.suleiman.material.utils;
+package com.b8games.beatpug.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 
-import com.suleiman.material.R;
+import com.b8games.beatpug.R;
 
 /**
  * Created by Suleiman on 30-04-2015.

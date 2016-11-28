@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/primary_500"
-    tools:context="com.suleiman.material.activities.ToolbarOverlayActivity">
+    tools:context="com.b8games.beatpug.activities.ToolbarOverlayActivity">
 
     <FrameLayout
         android:id="@+id/trans_bg"

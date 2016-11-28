@@ -1,4 +1,4 @@
-package com.suleiman.material.adapter;
+package com.b8games.beatpug.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
-import com.suleiman.material.R;
+import com.b8games.beatpug.R;
 
 import java.util.List;
 

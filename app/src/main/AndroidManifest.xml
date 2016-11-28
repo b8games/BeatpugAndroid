@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.suleiman.material">
+    package="com.b8games.beatpug">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/MyTheme">
         <activity
-            android:name=".activities.LaunchScreenActivity"
+            android:name="com.b8games.beatpug.activities.LaunchScreenActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,43 +20,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.b8games.beatpug.activities.MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.ToolbarOverlayActivity"
+            android:name="com.b8games.beatpug.activities.ToolbarOverlayActivity"
             android:label="@string/title_activity_toolbar_test" />
         <activity
-            android:name=".activities.NavDrawerActivity"
+            android:name="com.b8games.beatpug.activities.NavDrawerActivity"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/MyTheme.Detail" />
         <activity
-            android:name=".activities.AnimateToolbar"
+            android:name="com.b8games.beatpug.activities.AnimateToolbar"
             android:configChanges="orientation|screenSize"
             android:theme="@style/MyTheme.Detail" />
         <activity
-            android:name=".activities.TabAnimationActivity"
+            android:name="com.b8games.beatpug.activities.TabAnimationActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_tab_animation" />
         <activity
-            android:name=".activities.NestedToolbarActivity"
+            android:name="com.b8games.beatpug.activities.NestedToolbarActivity"
             android:label="@string/title_activity_nested_toolbar" />
         <activity
-            android:name=".activities.QuickReturnActivity"
+            android:name="com.b8games.beatpug.activities.QuickReturnActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_quick_return" />
         <activity
-            android:name=".activities.RevealAnimation"
+            android:name="com.b8games.beatpug.activities.RevealAnimation"
             android:label="@string/title_activity_reveal_animation" />
         <activity
-            android:name=".activities.GmailStyleActivity"
+            android:name="com.b8games.beatpug.activities.GmailStyleActivity"
             android:label="@string/title_activity_gmail_style" />
         <activity
-            android:name=".activities.TabsHeaderActivity"
+            android:name="com.b8games.beatpug.activities.TabsHeaderActivity"
             android:label="@string/title_activity_tabs_header"
             android:theme="@style/MyTheme.Detail" />
         <activity
-            android:name=".activities.PagerActivity"
+            android:name="com.b8games.beatpug.activities.PagerActivity"
             android:theme="@style/MyTheme.Detail" />
     </application>
 

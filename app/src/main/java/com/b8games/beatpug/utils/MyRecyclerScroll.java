@@ -1,4 +1,4 @@
-package com.suleiman.material.utils;
+package com.b8games.beatpug.utils;
 
 import android.support.v7.widget.RecyclerView;
 

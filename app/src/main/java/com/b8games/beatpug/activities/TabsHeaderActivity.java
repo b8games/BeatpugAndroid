@@ -1,14 +1,17 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -18,31 +21,54 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.suleiman.material.R;
-import com.suleiman.material.adapter.SimpleRecyclerAdapter;
-import com.suleiman.material.model.VersionModel;
+import com.b8games.beatpug.R;
+import com.b8games.beatpug.adapter.SimpleRecyclerAdapter;
+import com.b8games.beatpug.model.VersionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabAnimationActivity extends AppCompatActivity {
+public class TabsHeaderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tab_animation);
+        setContentView(R.layout.activity_tabs_header);
 
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.tabanim_toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.htab_toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Parallax Tabs");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.tabanim_viewpager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
         setupViewPager(viewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabanim_tabs);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.htab_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.htab_collapse_toolbar);
+        collapsingToolbarLayout.setTitleEnabled(false);
+
+        ImageView header = (ImageView) findViewById(R.id.header);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+                R.drawable.header);
+
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            @SuppressWarnings("ResourceType")
+            @Override
+            public void onGenerated(Palette palette) {
+
+                int vibrantColor = palette.getVibrantColor(R.color.primary_500);
+                int vibrantDarkColor = palette.getDarkVibrantColor(R.color.primary_700);
+                collapsingToolbarLayout.setContentScrimColor(vibrantColor);
+                collapsingToolbarLayout.setStatusBarScrimColor(vibrantDarkColor);
+            }
+        });
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -53,7 +79,6 @@ public class TabAnimationActivity extends AppCompatActivity {
                 switch (tab.getPosition()) {
                     case 0:
                         showToast("CANLI YAYIN");
-
                         break;
                     case 1:
                         showToast("FACEBOOK");
@@ -78,6 +103,7 @@ public class TabAnimationActivity extends AppCompatActivity {
         });
     }
 
+
     void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
@@ -87,12 +113,14 @@ public class TabAnimationActivity extends AppCompatActivity {
         adapter.addFrag(new DummyFragment(getResources().getColor(R.color.accent_material_light)), "CANLI YAYIN");
         adapter.addFrag(new DummyFragment(getResources().getColor(R.color.ripple_material_light)), "FACEBOOK");
         adapter.addFrag(new DummyFragment(getResources().getColor(R.color.button_material_dark)), "TWITTER");
+
         viewPager.setAdapter(adapter);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_tab_switch, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -102,9 +130,7 @@ public class TabAnimationActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.action_switch:
-                Intent intent = new Intent(TabAnimationActivity.this, TabsHeaderActivity.class);
-                startActivity(intent);
+            case R.id.action_settings:
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -187,5 +213,4 @@ public class TabAnimationActivity extends AppCompatActivity {
             return view;
         }
     }
-
 }

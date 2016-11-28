@@ -1,4 +1,4 @@
-package com.suleiman.material;
+package com.b8games.beatpug;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.suleiman.material.R;
-import com.suleiman.material.adapter.SimpleRecyclerAdapter;
-import com.suleiman.material.utils.Utils;
+import com.b8games.beatpug.R;
+import com.b8games.beatpug.adapter.SimpleRecyclerAdapter;
+import com.b8games.beatpug.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;

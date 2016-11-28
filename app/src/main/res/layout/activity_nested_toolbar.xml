@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_material_light"
-    tools:context="com.suleiman.material.activities.NestedToolbarActivity">
+    tools:context="com.b8games.beatpug.activities.NestedToolbarActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/nested_toolbar_1"

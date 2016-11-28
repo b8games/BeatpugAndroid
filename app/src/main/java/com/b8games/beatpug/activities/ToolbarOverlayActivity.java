@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
-import com.suleiman.material.R;
-import com.suleiman.material.utils.Utils;
+import com.b8games.beatpug.R;
+import com.b8games.beatpug.utils.Utils;
 
 public class ToolbarOverlayActivity extends AppCompatActivity {
     Toolbar toolbar;

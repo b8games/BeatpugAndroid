@@ -1,4 +1,4 @@
-package com.suleiman.material.activities;
+package com.b8games.beatpug.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.suleiman.material.R;
+import com.b8games.beatpug.R;
 
 public class LaunchScreenActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.suleiman.material.adapter;
+package com.b8games.beatpug.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.suleiman.material.R;
+import com.b8games.beatpug.R;
 
 import java.util.ArrayList;
 import java.util.List;
