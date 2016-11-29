@@ -7,10 +7,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.b8games.beatpug.R;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
+
 import io.fabric.sdk.android.Fabric;
 
 public class LaunchScreenActivity extends AppCompatActivity {
@@ -25,6 +27,9 @@ public class LaunchScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
 
@@ -50,7 +55,7 @@ public class LaunchScreenActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            intent = new Intent(LaunchScreenActivity.this, MainActivity.class);
+            intent = new Intent(LaunchScreenActivity.this, TabAnimationActivity.class);
         }
 
         @Override

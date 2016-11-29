@@ -1,13 +1,19 @@
 package com.b8games.beatpug.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -29,14 +36,30 @@ import java.util.List;
 
 public class TabAnimationActivity extends AppCompatActivity {
 
+    private Toolbar mToolbar;
+    private DrawerLayout mDrawerLayout;
+    NavigationView mNavigationView;
+    FrameLayout mContentFrame;
+
+    private static final String PREFERENCES_FILE = "mymaterialapp_settings";
+    private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+    private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
+
+    private boolean mUserLearnedDrawer;
+    private int mCurrentSelectedPosition;
+    private boolean mFromSavedInstanceState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_animation);
 
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.tabanim_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setUpToolbar();
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.tabanim_viewpager);
         setupViewPager(viewPager);
@@ -52,16 +75,10 @@ public class TabAnimationActivity extends AppCompatActivity {
 
                 switch (tab.getPosition()) {
                     case 0:
-                        showToast("CANLI YAYIN");
-
                         break;
                     case 1:
-                        showToast("FACEBOOK");
-
                         break;
                     case 2:
-                        showToast("TWITTER");
-
                         break;
                 }
             }
@@ -74,6 +91,38 @@ public class TabAnimationActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        mUserLearnedDrawer = Boolean.valueOf(readSharedSetting(this, PREF_USER_LEARNED_DRAWER, "false"));
+
+        if (savedInstanceState != null) {
+            mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
+            mFromSavedInstanceState = true;
+        }
+
+        setUpNavDrawer();
+
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mContentFrame = (FrameLayout) findViewById(R.id.nav_contentframe);
+
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                menuItem.setChecked(true);
+                switch (menuItem.getItemId()) {
+                    case R.id.navigation_item_1:
+
+                        mCurrentSelectedPosition = 0;
+                        return true;
+                    case R.id.navigation_item_2:
+                        Snackbar.make(mContentFrame, "Item Two", Snackbar.LENGTH_SHORT).show();
+                        mCurrentSelectedPosition = 1;
+                        return true;
+                    default:
+                        return true;
+                }
             }
         });
     }
@@ -91,9 +140,61 @@ public class TabAnimationActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(STATE_SELECTED_POSITION, mCurrentSelectedPosition);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION, 0);
+        Menu menu = mNavigationView.getMenu();
+        menu.getItem(mCurrentSelectedPosition).setChecked(true);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_tab_switch, menu);
         return true;
+    }
+
+    private void setUpToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
+    }
+
+    private void setUpNavDrawer() {
+        if (mToolbar != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            mToolbar.setNavigationIcon(R.drawable.ic_drawer);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDrawerLayout.openDrawer(GravityCompat.START);
+                }
+            });
+        }
+
+        if (!mUserLearnedDrawer) {
+            mDrawerLayout.openDrawer(GravityCompat.START);
+            mUserLearnedDrawer = true;
+            saveSharedSetting(this, PREF_USER_LEARNED_DRAWER, "true");
+        }
+
+    }
+
+    public static void saveSharedSetting(Context ctx, String settingName, String settingValue) {
+        SharedPreferences sharedPref = ctx.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(settingName, settingValue);
+        editor.apply();
+    }
+
+    public static String readSharedSetting(Context ctx, String settingName, String defaultValue) {
+        SharedPreferences sharedPref = ctx.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
+        return sharedPref.getString(settingName, defaultValue);
     }
 
     @Override
