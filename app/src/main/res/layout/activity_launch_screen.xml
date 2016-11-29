@@ -1,19 +1,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/blue_grey"
     tools:context="com.b8games.beatpug.activities.LaunchScreenActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/splash_img" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -23,7 +18,9 @@
             android:gravity="center"
             android:text="Material Design"
             android:textColor="@android:color/primary_text_dark"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:scaleType="fitXY"
+            />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Title"
@@ -32,8 +29,50 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Sample App"
-            android:textColor="@android:color/secondary_text_dark" />
+            android:textColor="@android:color/secondary_text_dark"
+            />
+
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_height="match_parent"
+                android:background="@drawable/splash_img" />
+
+            <ImageView
+                android:layout_width="500sp"
+                android:scaleType="fitCenter"
+                android:layout_height="500sp"
+                android:id="@+id/imageView4"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/bgizler"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/pug"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter" />
+
+    </RelativeLayout>
 
 
 </FrameLayout>
