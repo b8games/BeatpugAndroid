@@ -25,29 +25,18 @@ public class canliyayinacticity extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.dummyfrag_scrollableview);
 
-
-        WebView wv_video = (WebView) view.findViewById(R.id.canliyayinwebview);
-        wv_video.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
-        wv_video.getSettings().setJavaScriptEnabled(true);
-        wv_video.setWebChromeClient(new WebChromeClient());
-
-        final String mimeType = "text/html";
-        final String encoding = "UTF-8";
-
-        String html = getHTMLTwitch();
-
-        wv_video.loadDataWithBaseURL("", html, mimeType, encoding, "");
+        String url = "http://player.twitch.tv/?channel=jahrein";
+        WebView mWebView;
+        mWebView = (WebView) view.findViewById(R.id.canliyayinwebview);
+        mWebView.setWebChromeClient(new WebChromeClient());
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        mWebView.loadUrl(url);
         return view;
-
-
     }
 
-    public String getHTMLTwitch() {
-        String html = "<html><body style='margin:0;padding:0;'>" +
-                "<iframe src=\"http://twitch.tv/jahrein/embed\" height=\"100%\" width=\"100%\" type=\"text/html\"></iframe>" +
-                "</body></html>\n";
 
-        return html;
-    }
 
 }
