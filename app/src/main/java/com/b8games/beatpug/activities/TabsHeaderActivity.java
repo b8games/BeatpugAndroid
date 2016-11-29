@@ -110,9 +110,9 @@ public class TabsHeaderActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.accent_material_light)), "CANLI YAYIN");
-        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.ripple_material_light)), "FACEBOOK");
-        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.button_material_dark)), "TWITTER");
+        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.accent_material_light)), "FACEBOOK");
+        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.ripple_material_light)), "TWITTER");
+        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.button_material_dark)), "CANLI YAYIN");
 
         viewPager.setAdapter(adapter);
     }
@@ -148,11 +148,11 @@ public class TabsHeaderActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new canliyayinacticity();
-                case 1:
                     return new facebookactivity();
+                case 1:
+                    return new SearchTimelineFragment();
                 case 2:
-                    return new twitteractivity();
+                    return new canliyayinacticity();
 
                 default:
                     break;

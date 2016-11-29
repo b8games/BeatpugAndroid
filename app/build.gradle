@@ -43,6 +43,7 @@ repositories {
     maven {
         url 'https://maven.fabric.io/public'
     }
+    maven { url 'https://maven.fabric.io/repo' }
 }
 
 dependencies {
@@ -57,4 +58,5 @@ dependencies {
     compile('com.twitter.sdk.android:twitter:2.2.0@aar') {
         transitive = true;
     }
+    compile 'com.android.support:support-v4:25.0.1'
 }
