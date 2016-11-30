@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.b8games.beatpug.R;
@@ -153,14 +154,15 @@ public class TabAnimationActivity extends AppCompatActivity {
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             usttool.setVisibility(View.INVISIBLE);
-            usttool.setEnabled(false);
             nnavview.setVisibility(View.INVISIBLE);
-            nnavview.setEnabled(false);
             tabLayout.setVisibility(View.INVISIBLE);
-            tabLayout.setEnabled(false);
+
             appbar.setVisibility(View.INVISIBLE);
-            appbar.setEnabled(false);
-            appbar.destroyDrawingCache();
+
+            ViewGroup.MarginLayoutParams marginParams = new ViewGroup.MarginLayoutParams(viewPager.getLayoutParams());
+            marginParams.setMargins(0, 0, 0, 0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(marginParams);
+            viewPager.setLayoutParams(layoutParams);
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             usttool.setVisibility(View.VISIBLE);
             nnavview.setVisibility(View.VISIBLE);
