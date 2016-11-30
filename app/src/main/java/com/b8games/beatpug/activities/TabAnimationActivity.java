@@ -56,6 +56,11 @@ public class TabAnimationActivity extends AppCompatActivity {
     private NavigationView nnavview;
     TabLayout tabLayout;
      ViewPager viewPager;
+    String left;
+    String top;
+    String right;
+    String bottom;
+    int height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,6 +152,8 @@ public class TabAnimationActivity extends AppCompatActivity {
                 }
             }
         });
+        appbar.measure(AppBarLayout.LayoutParams.WRAP_CONTENT, AppBarLayout.LayoutParams.WRAP_CONTENT);
+         height = appbar.getMeasuredHeight();
     }
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -168,6 +175,11 @@ public class TabAnimationActivity extends AppCompatActivity {
             nnavview.setVisibility(View.VISIBLE);
             tabLayout.setVisibility(View.VISIBLE);
             appbar.setVisibility(View.VISIBLE);
+
+            ViewGroup.MarginLayoutParams marginParams = new ViewGroup.MarginLayoutParams(viewPager.getLayoutParams());
+            marginParams.setMargins(0, height, 0, 0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(marginParams);
+            viewPager.setLayoutParams(layoutParams);
         }
     }
 
