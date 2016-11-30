@@ -112,7 +112,7 @@ public class TabAnimationActivity extends AppCompatActivity {
                 menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_item_1:
-
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
                         mCurrentSelectedPosition = 0;
                         return true;
                     case R.id.navigation_item_2:
