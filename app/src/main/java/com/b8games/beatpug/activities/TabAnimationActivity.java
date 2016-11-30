@@ -118,6 +118,15 @@ public class TabAnimationActivity extends AppCompatActivity {
                     case R.id.navigation_item_2:
                         mCurrentSelectedPosition = 1;
                         return true;
+                    case R.id.navigation_item_3:
+                        mCurrentSelectedPosition = 2;
+                        return true;
+                    case R.id.navigation_item_4:
+                        mCurrentSelectedPosition = 3;
+                        return true;
+                    case R.id.navigation_item_5:
+                        mCurrentSelectedPosition = 4;
+                        return true;
                     default:
                         return true;
                 }
