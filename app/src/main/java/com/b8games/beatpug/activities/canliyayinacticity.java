@@ -25,7 +25,7 @@ public class canliyayinacticity extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.dummyfrag_scrollableview);
 
-        String url = "http://player.twitch.tv/?channel=jahrein";
+        String url = "http://player.twitch.tv/?channel=beatpug";
         WebView mWebView;
         mWebView = (WebView) view.findViewById(R.id.canliyayinwebview);
         mWebView.setWebChromeClient(new WebChromeClient());

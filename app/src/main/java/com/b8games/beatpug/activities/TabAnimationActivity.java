@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -117,7 +116,6 @@ public class TabAnimationActivity extends AppCompatActivity {
                         mCurrentSelectedPosition = 0;
                         return true;
                     case R.id.navigation_item_2:
-                        Snackbar.make(mContentFrame, "Item Two", Snackbar.LENGTH_SHORT).show();
                         mCurrentSelectedPosition = 1;
                         return true;
                     default:

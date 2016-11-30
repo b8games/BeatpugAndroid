@@ -5,11 +5,24 @@
             android:id="@+id/navigation_item_1"
             android:checked="true"
             android:icon="@drawable/ic_action_search"
-            android:title="Item One" />
+            android:title="Anasayfa" />
         <item
             android:id="@+id/navigation_item_2"
             android:icon="@drawable/ic_action_add"
-            android:title="Item Two" />
+            android:title="Sizden Gelenler " />
+        <item
+            android:id="@+id/navigation_item_3"
+            android:icon="@drawable/ic_action_add"
+            android:title="Yayından Enstantaneler " />
+        <item
+            android:id="@+id/navigation_item_4"
+            android:icon="@drawable/ic_action_add"
+            android:title="BeatPug Lig " />
+        <item
+            android:id="@+id/navigation_item_5"
+            android:icon="@drawable/ic_action_add"
+            android:title="Anketler " />
+
     </group>
 
 
