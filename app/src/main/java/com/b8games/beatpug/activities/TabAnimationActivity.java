@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -48,6 +50,11 @@ public class TabAnimationActivity extends AppCompatActivity {
     private int mCurrentSelectedPosition;
     private boolean mFromSavedInstanceState;
 
+    private AppBarLayout appbar;
+    private Toolbar usttool;
+    private NavigationView nnavview;
+    TabLayout tabLayout;
+     ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +67,18 @@ public class TabAnimationActivity extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.tabanim_viewpager);
+        usttool = (Toolbar) findViewById(R.id.toolbar);
+        nnavview = (NavigationView) findViewById(R.id.nav_view);
+        appbar = (AppBarLayout) findViewById(R.id.tabanim_appbar);
+
+
+        viewPager = (ViewPager) findViewById(R.id.tabanim_viewpager);
         setupViewPager(viewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabanim_tabs);
+          tabLayout = (TabLayout) findViewById(R.id.tabanim_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -132,6 +146,27 @@ public class TabAnimationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            usttool.setVisibility(View.INVISIBLE);
+            usttool.setEnabled(false);
+            nnavview.setVisibility(View.INVISIBLE);
+            nnavview.setEnabled(false);
+            tabLayout.setVisibility(View.INVISIBLE);
+            tabLayout.setEnabled(false);
+            appbar.setVisibility(View.INVISIBLE);
+            appbar.setEnabled(false);
+            appbar.destroyDrawingCache();
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            usttool.setVisibility(View.VISIBLE);
+            nnavview.setVisibility(View.VISIBLE);
+            tabLayout.setVisibility(View.VISIBLE);
+            appbar.setVisibility(View.VISIBLE);
+        }
     }
 
     void showToast(String msg) {
@@ -224,13 +259,19 @@ public class TabAnimationActivity extends AppCompatActivity {
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
+
         }
 
         @Override
         public Fragment getItem(int position) {
+
             switch (position){
+
                 case 0:
                     return new facebookactivity();
+
+
+
                 case 1:
                     return new SearchTimelineFragment();
                 case 2:
@@ -240,9 +281,9 @@ public class TabAnimationActivity extends AppCompatActivity {
                     break;
             }
 
+
             return null;
         }
-
 
         @Override
         public int getCount() {
