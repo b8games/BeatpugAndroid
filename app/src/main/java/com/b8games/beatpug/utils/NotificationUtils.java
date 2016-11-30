@@ -86,7 +86,7 @@ public class NotificationUtils {
                     playNotificationSound();
                 } else {
                     showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
-                    playNotificationSound();
+
                 }
             }
         } else {
