@@ -84,7 +84,7 @@ public class LaunchScreenActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            intent = new Intent(LaunchScreenActivity.this, TabAnimationActivity.class);
+            intent = new Intent(LaunchScreenActivity.this, klipler.class);
         }
 
         @Override

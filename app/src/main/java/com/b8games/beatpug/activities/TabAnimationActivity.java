@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -94,10 +95,13 @@ public class TabAnimationActivity extends AppCompatActivity {
 
                 switch (tab.getPosition()) {
                     case 0:
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                         break;
                     case 1:
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                         break;
                     case 2:
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
                         break;
                 }
             }
@@ -136,6 +140,8 @@ public class TabAnimationActivity extends AppCompatActivity {
                         mCurrentSelectedPosition = 0;
                         return true;
                     case R.id.navigation_item_2:
+                        Intent intent = new Intent(TabAnimationActivity.this, klipler.class);
+                        startActivity(intent);
                         mCurrentSelectedPosition = 1;
                         return true;
                     case R.id.navigation_item_3:
@@ -283,8 +289,6 @@ public class TabAnimationActivity extends AppCompatActivity {
 
                 case 0:
                     return new facebookactivity();
-
-
 
                 case 1:
                     return new SearchTimelineFragment();
