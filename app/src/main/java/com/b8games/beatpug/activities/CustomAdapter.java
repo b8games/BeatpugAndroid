@@ -35,7 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
 
-        holder.description.setText(my_data.get(position).getDescription());
+        holder.description.setText("Klip gönderen: "+my_data.get(position).getDescription());
         Glide.with(context).load(my_data.get(position).getImage_link()).into(holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "51126655573",
-    "firebase_url": "https://beatpug-dbb41.firebaseio.com",
-    "project_id": "beatpug-dbb41",
-    "storage_bucket": "beatpug-dbb41.appspot.com"
+    "project_number": "912985462505",
+    "firebase_url": "https://beatpug-76d3f.firebaseio.com",
+    "project_id": "beatpug-76d3f",
+    "storage_bucket": "beatpug-76d3f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:51126655573:android:f8aa148a751e14e1",
+        "mobilesdk_app_id": "1:912985462505:android:f8aa148a751e14e1",
         "android_client_info": {
           "package_name": "com.b8games.beatpug"
         }
       },
       "oauth_client": [
         {
-          "client_id": "51126655573-m6da1v1l42ma1m3c6vfpjdf9mmphr8gj.apps.googleusercontent.com",
+          "client_id": "912985462505-9jfepq2rq9r5q4qdleltk6h3lvp0c9m2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCXk3e0PWNzj99HEYkA2lRu12ZZwPd0eLI"
+          "current_key": "AIzaSyB_ZvhjzUXPqPxL-eo2AeHBnfITVFy_y2I"
         }
       ],
       "services": {

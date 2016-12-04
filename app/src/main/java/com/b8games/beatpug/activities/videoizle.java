@@ -41,6 +41,7 @@ public class videoizle extends AppCompatActivity {
                 finish();
             }
         });
+        videoLayout.setShouldAutoplay(true);
         Uri videoUri = Uri.parse(videourl);
         try {
             videoLayout.setVideoURI(videoUri);

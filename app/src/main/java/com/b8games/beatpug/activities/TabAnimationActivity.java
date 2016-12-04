@@ -203,8 +203,8 @@ public class TabAnimationActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.accent_material_light)), "FACEBOOK");
-        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.ripple_material_light)), "TWITTER");
+        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.accent_material_light)), "TWITTER");
+        adapter.addFrag(new DummyFragment(getResources().getColor(R.color.ripple_material_light)), "FACEBOOK");
         adapter.addFrag(new DummyFragment(getResources().getColor(R.color.button_material_dark)), "CANLI YAYIN");
         viewPager.setAdapter(adapter);
     }
@@ -296,10 +296,11 @@ public class TabAnimationActivity extends AppCompatActivity {
             switch (position){
 
                 case 0:
-                    return new facebookactivity();
+                    return new SearchTimelineFragment();
 
                 case 1:
-                    return new SearchTimelineFragment();
+                    return new facebookactivity();
+
                 case 2:
                     return new canliyayinacticity();
 
