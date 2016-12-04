@@ -73,6 +73,14 @@ public class TabAnimationActivity extends AppCompatActivity {
         setUpToolbar();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer);
+        mUserLearnedDrawer = Boolean.valueOf(readSharedSetting(this, PREF_USER_LEARNED_DRAWER, "true"));
+
+        if (savedInstanceState != null) {
+            mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
+            mFromSavedInstanceState = true;
+        }
+
+        setUpNavDrawer();
 
         usttool = (Toolbar) findViewById(R.id.toolbar);
         nnavview = (NavigationView) findViewById(R.id.nav_view);
@@ -117,7 +125,7 @@ public class TabAnimationActivity extends AppCompatActivity {
             }
         });
 
-        mUserLearnedDrawer = Boolean.valueOf(readSharedSetting(this, PREF_USER_LEARNED_DRAWER, "false"));
+        mUserLearnedDrawer = Boolean.valueOf(readSharedSetting(this, PREF_USER_LEARNED_DRAWER, "true"));
 
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
@@ -140,11 +148,11 @@ public class TabAnimationActivity extends AppCompatActivity {
                         mCurrentSelectedPosition = 0;
                         return true;
                     case R.id.navigation_item_2:
-                        Intent intent = new Intent(TabAnimationActivity.this, klipler.class);
-                        startActivity(intent);
                         mCurrentSelectedPosition = 1;
                         return true;
                     case R.id.navigation_item_3:
+                        Intent intent = new Intent(TabAnimationActivity.this, klipler.class);
+                        startActivity(intent);
                         mCurrentSelectedPosition = 2;
                         return true;
                     case R.id.navigation_item_4:
@@ -242,7 +250,7 @@ public class TabAnimationActivity extends AppCompatActivity {
         if (!mUserLearnedDrawer) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             mUserLearnedDrawer = true;
-            saveSharedSetting(this, PREF_USER_LEARNED_DRAWER, "true");
+            saveSharedSetting(this, PREF_USER_LEARNED_DRAWER, "false");
         }
 
     }
