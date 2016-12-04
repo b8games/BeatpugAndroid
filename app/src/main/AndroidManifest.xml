@@ -24,7 +24,7 @@
         <activity
             android:name="com.b8games.beatpug.activities.klipler"
             android:screenOrientation="portrait"
-            android:label="Klipler">
+            android:label="Yayından Enstantaneler">
     </activity>
         <activity
             android:name="com.b8games.beatpug.activities.MainActivity"

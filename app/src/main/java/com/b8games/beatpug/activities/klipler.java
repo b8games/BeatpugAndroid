@@ -65,6 +65,7 @@ public class klipler extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
+
         setUpToolbar();
         load_data_from_server(0);
 
@@ -91,11 +92,11 @@ public class klipler extends AppCompatActivity {
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mContentFrame = (FrameLayout) findViewById(R.id.nav_contentframe);
 
+        mNavigationView.setCheckedItem(R.id.navigation_item_3);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-                menuItem.setChecked(true);
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_item_1:
                         Intent intent = new Intent(klipler.this, TabAnimationActivity.class);
@@ -109,6 +110,8 @@ public class klipler extends AppCompatActivity {
                         mCurrentSelectedPosition = 1;
                         return true;
                     case R.id.navigation_item_3:
+
+
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         mCurrentSelectedPosition = 2;
                         return true;
@@ -132,7 +135,7 @@ public class klipler extends AppCompatActivity {
             @Override
             public void onLoadMore(int current_page) {
                 // BURAYA YAZILACAK
-                Toast.makeText(getApplicationContext(),"Eski klipler yükleniyor...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Klipler yükleniyor...", Toast.LENGTH_SHORT).show();
             }
         });
 
