@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name="com.b8games.beatpug.activities.klipler"
-
+            android:screenOrientation="portrait"
             android:label="Klipler">
     </activity>
         <activity
@@ -35,7 +35,8 @@
             android:label="@string/title_activity_toolbar_test"/>
         <activity
             android:name="com.b8games.beatpug.activities.videoizle"
-            android:label="@string/title_activity_toolbar_test" />
+            android:label="Klip izle"
+            android:screenOrientation="landscape"/>
         <activity
             android:name="com.b8games.beatpug.activities.NavDrawerActivity"
             android:label="@string/title_activity_nav_drawer"

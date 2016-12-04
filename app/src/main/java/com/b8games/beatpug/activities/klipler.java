@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.b8games.beatpug.R;
 
@@ -46,7 +47,7 @@ public class klipler extends AppCompatActivity {
     private boolean loading = false;
     int visibleThreshold,lastVisibleItem ;
     int firstVisibleItem, visibleItemCount, totalItemCount;
-
+    private boolean kullaniciGeriButonunaBasinca=false;
     private static final String PREFERENCES_FILE = "mymaterialapp_settings";
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
@@ -98,7 +99,10 @@ public class klipler extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.navigation_item_1:
                         Intent intent = new Intent(klipler.this, TabAnimationActivity.class);
+
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        finish();
                         mCurrentSelectedPosition = 0;
                         return true;
                     case R.id.navigation_item_2:
@@ -128,7 +132,7 @@ public class klipler extends AppCompatActivity {
             @Override
             public void onLoadMore(int current_page) {
                 // BURAYA YAZILACAK
-
+                Toast.makeText(getApplicationContext(),"Eski klipler yükleniyor...", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -217,6 +221,13 @@ public class klipler extends AppCompatActivity {
         task.execute(id);
 
     }
+    @Override
+    public void onBackPressed() {
+        if(!kullaniciGeriButonunaBasinca){
 
+        }else{
+            super.onBackPressed();
+        }
+    }
 
 }

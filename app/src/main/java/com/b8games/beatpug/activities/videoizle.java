@@ -1,5 +1,6 @@
 package com.b8games.beatpug.activities;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +34,13 @@ public class videoizle extends AppCompatActivity {
         videoLayout = (FullscreenVideoLayout) findViewById(R.id.videoizle);
         videoLayout.setActivity(this);
 
+        videoLayout.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                finish();
+            }
+        });
         Uri videoUri = Uri.parse(videourl);
         try {
             videoLayout.setVideoURI(videoUri);
