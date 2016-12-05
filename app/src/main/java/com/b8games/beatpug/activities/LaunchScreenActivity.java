@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -76,6 +78,16 @@ public class LaunchScreenActivity extends AppCompatActivity {
         };
     }
 
+    public boolean InternetKontrol() {
+        ConnectivityManager conMgr = (ConnectivityManager) getSystemService (Context.CONNECTIVITY_SERVICE);
+
+        if (conMgr.getActiveNetworkInfo() != null && conMgr.getActiveNetworkInfo().isAvailable() && conMgr.getActiveNetworkInfo().isConnected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     private class BackgroundTask extends AsyncTask {
         Intent intent;
@@ -84,7 +96,24 @@ public class LaunchScreenActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            intent = new Intent(LaunchScreenActivity.this, TabAnimationActivity.class);
+            if(InternetKontrol())
+            {
+                intent = new Intent(LaunchScreenActivity.this, TabAnimationActivity.class);
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(),"İnternet Bağlantınız Yok.", Toast.LENGTH_SHORT).show();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                        System.exit(0);
+                    }
+                }, 2000);
+
+            }
+
         }
 
         @Override
