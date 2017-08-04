@@ -188,7 +188,7 @@ public class klipler extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://beatpug.pe.hu/datacek/script.php?id="+integers[0])
+                        .url("http://beatpug.com/mobil/adminPanel/datacek/script.php?id="+integers[0])
                         .build();
                 try {
                     Response response = client.newCall(request).execute();
